@@ -1,0 +1,6 @@
+# requirements.txt
+langchain
+langchain-google-genai
+google-generativeai
+gradio
+python-dotenv
