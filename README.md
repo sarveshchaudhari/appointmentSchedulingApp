@@ -21,7 +21,7 @@ This project is a sophisticated chatbot that allows users to schedule, search, u
 
 -   **Language**: Python
 -   **AI Framework**: [LangChain](https://www.langchain.com/) for agent creation, tool management, and LLM interaction.
--   **LLM Provider**: [OpenAI](https://openai.com/) (easily swappable with other LangChain-supported models).
+-   **LLM Provider**: [GeminiAI] (easily swappable with other LangChain-supported models).
 -   **Web UI**: [Gradio](https://www.gradio.app/) for the interactive chat interface.
 -   **Database**: SQLite for lightweight, file-based data storage.
 -   **Environment Management**: `python-dotenv` for handling API keys.
@@ -34,7 +34,7 @@ Follow these steps to get the application running on your local machine.
 ### 1. Prerequisites
 
 -   Python 3.9 or newer.
--   An [OpenAI API key](https://platform.openai.com/account/api-keys).
+-   An [Gemini API key].
 
 ### 2. Clone the Repository
 
