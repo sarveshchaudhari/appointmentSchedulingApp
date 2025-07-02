@@ -70,7 +70,7 @@ ECHO.
 
 :: The GOOGLE_API_KEY is now set as an environment variable for this session.
 :: The python script will be able to access it with os.getenv()
-python app.py
+python main.py
 
 ECHO.
 ECHO Application has been closed.
