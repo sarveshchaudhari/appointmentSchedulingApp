@@ -3,6 +3,7 @@
 ![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)
 
 This project is a sophisticated chatbot that allows users to schedule, search, update, and delete appointments using natural language. It leverages the LangChain framework to create an intelligent agent, a Gradio interface for a user-friendly chat experience, and a SQLite database for persistent storage.
+![## Update Run the run.bat file to launch the application locally.]
 
 ## Key Features
 
