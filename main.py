@@ -6,12 +6,12 @@ from dotenv import load_dotenv
 from database.db_handler import init_db
 from langchain_logic.agent_setup import create_agent_executor
 
-# --- Load Environment and Initialize ---
+
 load_dotenv()
 init_db()
 agent_executor = create_agent_executor()
 
-# --- Initial Bot Message ---
+
 INITIAL_MESSAGE = """
 Hey! I'm your appointment scheduling assistant. I can help you schedule, find, update, or delete appointments.
 
@@ -24,8 +24,6 @@ To schedule an appointment, I'll need the following details:
 How can I help you today?
 """
 
-
-# --- Gradio Chat Interface Logic ---
 def chat_interface_fn(message, history):
     """
     The function that the Gradio ChatInterface will call.
@@ -56,7 +54,7 @@ def greet():
     Function to provide the initial greeting.
     It must return the data in the format the chatbot expects: a list of [user, bot] pairs.
     """
-    # FIX: Return the history in the correct format.
+
     return [[None, INITIAL_MESSAGE]]
 
 

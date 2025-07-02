@@ -3,12 +3,12 @@ from typing import List, Dict, Any
 
 DB_FILE = "appointments.db"
 
-# ... (get_db_connection, init_db, add_appointment functions are unchanged) ...
+
 
 def get_db_connection():
     """Establishes a connection to the database."""
     conn = sqlite3.connect(DB_FILE)
-    conn.row_factory = sqlite3.Row  # This allows accessing columns by name
+    conn.row_factory = sqlite3.Row
     return conn
 
 

@@ -9,8 +9,7 @@ from database.db_handler import (
     get_all_appointments
 )
 
-# --- Pydantic Models for Tool Inputs ---
-# (These are unchanged)
+
 class ScheduleAppointmentInput(BaseModel):
     customer_name: str = Field(description="The full name of the customer.")
     customer_phone: str = Field(description="The contact phone number of the customer.")
@@ -36,11 +35,10 @@ class UpdateAppointmentInput(BaseModel):
     new_value: str = Field(description="The new value for the specified field.")
 
 
-# --- Tool Definitions ---
 
 @tool(args_schema=ScheduleAppointmentInput)
 def schedule_appointment(customer_name: str, customer_phone: str, appointment_datetime: str, service_type: str) -> str:
-    """Schedules a new appointment.""" # <-- ADDED THIS DOCSTRING BACK
+    """Schedules a new appointment.""" #
     try:
         datetime.strptime(appointment_datetime, '%Y-%m-%d %H:%M:%S')
     except ValueError:
@@ -55,7 +53,7 @@ def schedule_appointment(customer_name: str, customer_phone: str, appointment_da
 
 @tool(args_schema=SearchAppointmentInput)
 def search_for_appointments(criteria: str, value: str) -> str:
-    """Searches for existing appointments based on name, service type, or date.""" # <-- ADDED THIS DOCSTRING BACK
+    """Searches for existing appointments based on name, service type, or date."""
     results = search_appointments(criteria, value)
     if not results:
         return f"No confirmed appointments found for {criteria} = {value}."
@@ -92,7 +90,7 @@ def delete_appointment_records(criteria: str, value: str) -> str:
 
 @tool(args_schema=UpdateAppointmentInput)
 def update_appointment_record(identifier_value: str, field_to_update: str, new_value: str) -> str:
-    """Updates an appointment's information, like phone number or time.""" # <-- ADDED THIS DOCSTRING BACK
+    """Updates an appointment's information, like phone number or time."""
     count = update_appointment(identifier_value, field_to_update, new_value)
     if count == 0:
         return f"Error: Could not find or update an appointment for customer '{identifier_value}'."

@@ -1,24 +1,23 @@
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
-# Import the new tool
 from langchain_logic.tools import schedule_appointment, search_for_appointments, delete_appointment_records, update_appointment_record, list_all_appointments
 from datetime import datetime
 
 def create_agent_executor():
     """Creates the LangChain agent and executor."""
-    # Add the new tool to the list
+
     tools = [
         schedule_appointment,
         search_for_appointments,
-        list_all_appointments, # <-- ADDED HERE
+        list_all_appointments,
         delete_appointment_records,
         update_appointment_record
     ]
 
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite-preview-06-17", temperature=0)
 
-    # You can optionally update the prompt to mention the new capability
+
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are an advanced, helpful appointment scheduling assistant.
 
@@ -43,7 +42,7 @@ def create_agent_executor():
     agent_executor = AgentExecutor(
         agent=agent,
         tools=tools,
-        verbose=True, # For debugging
+        verbose=True,
         handle_parsing_errors=True
     )
     return agent_executor
